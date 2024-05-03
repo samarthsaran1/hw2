@@ -112,7 +112,7 @@ addmovie["studio_id"] = warner_bros.id
 addmovie.save
 
 addmovie = Movie.new
-addmovie["title"] = "The Dark Knght Rise"
+addmovie["title"] = "The Dark Knght Rises"
 addmovie["year_released"] = 2012
 addmovie["rated"] = "PG-13"
 addmovie["studio_id"] = warner_bros.id
@@ -126,17 +126,14 @@ addstudio.save
 
 #actors
 
-addactor =Actor.new
+addactor = Actor.new
 addactor ["name"] = "Christian Bale"
 addactor.save
 addactor = Actor.new
-addactor ["name"] = "Michael Caine"
+addactor ["name"] = "Michael Cane"
 addactor.save
 addactor = Actor.new
 addactor ["name"] = "Liam Neeson"
-addactor.save
-addactor = Actor.new
-addactor ["name"] = "Michael Caine"
 addactor.save
 addactor = Actor.new
 addactor ["name"] = "Katie Holmes"
@@ -145,23 +142,66 @@ addactor = Actor.new
 addactor ["name"] = "Gary Oldman"
 addactor.save
 addactor = Actor.new
+addactor ["name"] = "Heath Ledger"
+addactor.save
+addactor = Actor.new
 addactor ["name"] = "Aaron Eckhart"
 addactor.save
 addactor = Actor.new
 addactor ["name"] = "Maggie Gyllenhaal"
 addactor.save
 addactor = Actor.new
-addactor ["name"] = "Heath Ledger"
-addactor.save
-addactor = Actor.new
 addactor ["name"] = "Tom Hardy"
-addactor.save
-addactor = Actor.new
-addactor ["name"] = "Anne Hathaway"
 addactor.save
 addactor = Actor.new
 addactor ["name"] = "Joseph Gordon-Levitt"
 addactor.save
+addactor = Actor.new
+addactor ["name"] = "Anne Hathaway"
+addactor.save
+
+# role / character mapping (overall)
+
+christianb = Actor.find_by(name: "Christian Bale")
+michaelc = Actor.find_by(name: "Michael Caine")
+liamn = Actor.find_by(name: "Liam Neeson")
+katieh = Actor.find_by(name: "Katie Holmes")
+garyo = Actor.find_by(name: "Gary Oldman")
+heathl = Actor.find_by(name: "Heath Ledger")
+aarone = Actor.find_by(name: "Aaron Eckhart")
+maggieg = Actor.find_by(name: "Maggie Gyllenhaal")
+tomh = Actor.find_by(name: "Tom Hardy")
+josephgl = Actor.find_by(name: "Joseph Gordon-Levitt")
+anneh = Actor.find_by(name: "Anne Hathaway")
+
+
+# role / character mapping (by movie)
+
+Role.create(movie_id: batman1.id, actor_id: christianb.id, chracter_name: "Bruce Wayne")
+Role.create(movie_id: batman1.id, actor_id: michaelc.id, chracter_name: "Alfred")
+Role.create(movie_id: batman1.id, actor_id: liamn.id, chracter_name: "Ra's Al Ghul")
+Role.create(movie_id: batman1.id, actor_id: katieh.id, chracter_name: "Rachel Dawes")
+Role.create(movie_id: batman1.id, actor_id: garyo.id, chracter_name: "Commissioner Gordon")
+
+Role.create(movie_id: batman2.id, actor_id: christianb.id, chracter_name: "Bruce Wayne")
+Role.create(movie_id: batman2.id, actor_id: heathl.id, chracter_name: "Joker")
+Role.create(movie_id: batman2.id, actor_id: aarone.id, chracter_name: "Harvey Dent")
+Role.create(movie_id: batman2.id, actor_id: michaelc.id, chracter_name: "Alfred")
+Role.create(movie_id: batman2.id, actor_id: maggieg.id, chracter_name: "Rachel Dawes")
+
+Role.create(movie_id: batman3.id, actor_id: christianb.id, chracter_name: "Bruce Wayne")
+Role.create(movie_id: batman3.id, actor_id: garyo.id, chracter_name: "Commissioner Gordon")
+Role.create(movie_id: batman3.id, actor_id: tomh.id, chracter_name: "Bane")
+Role.create(movie_id: batman3.id, actor_id: josephgl.id, chracter_name: "John Blake")
+Role.create(movie_id: batman3.id, actor_id: anneh.id, chracter_name: "Selina Kyle")
+
+
+# movie mapping
+batman1 = Movie.find_by(title: "Batman Begins")
+batman2 = Movie.find_by(title: "The Dark Knight")
+batman3 = Movie.find_by(title: "The Dark Knght Rises")
+
+
 
 # Prints a header for the movies output
 puts "Movies"
@@ -170,6 +210,8 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+
+
 
 # Prints a header for the cast output
 puts ""
