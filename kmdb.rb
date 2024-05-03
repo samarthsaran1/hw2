@@ -77,12 +77,91 @@
 # Use `Model.destroy_all` code.
 # TODO!
 
+#SS: destroy commands for each class below (although classes are defined in the next step)
+
+Studio.destroy_all
+Movie.destroy_all
+Actor.destroy_all
+Role.destroy_all
+
 # Generate models and tables, according to the domain model.
 # TODO!
+
+# SS: completed and tested 
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+#SS: All data entry is below
+
+#movies
+
+addmovie = Movie.new
+addmovie["title"] = "Batman Begins"
+addmovie["year_released"] = 2005
+addmovie["rated"] = "PG-13"
+addmovie["studio_id"] = warner_bros.id
+addmovie.save
+
+addmovie = Movie.new
+addmovie["title"] = "The Dark Knight"
+addmovie["year_released"] = 20088
+addmovie["rated"] = "PG-13"
+addmovie["studio_id"] = warner_bros.id
+addmovie.save
+
+addmovie = Movie.new
+addmovie["title"] = "The Dark Knght Rise"
+addmovie["year_released"] = 2012
+addmovie["rated"] = "PG-13"
+addmovie["studio_id"] = warner_bros.id
+addmovie.save
+
+#studios
+
+addstudio = Studio.new
+addstudio["name"] = "Warner Bros."
+addstudio.save
+
+#actors
+
+addactor =Actor.new
+addactor ["name"] = "Christian Bale"
+addactor.save
+addactor = Actor.new
+addactor ["name"] = "Michael Caine"
+addactor.save
+addactor = Actor.new
+addactor ["name"] = "Liam Neeson"
+addactor.save
+addactor = Actor.new
+addactor ["name"] = "Michael Caine"
+addactor.save
+addactor = Actor.new
+addactor ["name"] = "Katie Holmes"
+addactor.save
+addactor = Actor.new
+addactor ["name"] = "Gary Oldman"
+addactor.save
+addactor = Actor.new
+addactor ["name"] = "Aaron Eckhart"
+addactor.save
+addactor = Actor.new
+addactor ["name"] = "Maggie Gyllenhaal"
+addactor.save
+addactor = Actor.new
+addactor ["name"] = "Heath Ledger"
+addactor.save
+addactor = Actor.new
+addactor ["name"] = "Tom Hardy"
+addactor.save
+addactor = Actor.new
+addactor ["name"] = "Anne Hathaway"
+addactor.save
+addactor = Actor.new
+addactor ["name"] = "Joseph Gordon-Levitt"
+addactor.save
 
 # Prints a header for the movies output
 puts "Movies"
