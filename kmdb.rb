@@ -95,75 +95,77 @@ Role.destroy_all
 
 #SS: All data entry is below
 
+#studios
+
+addstudio = Studio.new
+addstudio["name"] = "Warner Bros."
+addstudio.save
+warnerbros = Studio.find_by({"name" => "Warner Bros."})
+
+
 #movies
 
 addmovie = Movie.new
 addmovie["title"] = "Batman Begins"
 addmovie["year_released"] = 2005
 addmovie["rated"] = "PG-13"
-addmovie["studio_id"] = warner_bros.id
+addmovie["studio_id"] = warnerbros.id
 addmovie.save
 
 addmovie = Movie.new
 addmovie["title"] = "The Dark Knight"
-addmovie["year_released"] = 20088
+addmovie["year_released"] = 2008
 addmovie["rated"] = "PG-13"
-addmovie["studio_id"] = warner_bros.id
+addmovie["studio_id"] = warnerbros.id
 addmovie.save
 
 addmovie = Movie.new
 addmovie["title"] = "The Dark Knght Rises"
-addmovie["year_released"] = 2012
+addmovie["year_released"] = 2013
 addmovie["rated"] = "PG-13"
-addmovie["studio_id"] = warner_bros.id
+addmovie["studio_id"] = warnerbros.id
 addmovie.save
-
-#studios
-
-addstudio = Studio.new
-addstudio["name"] = "Warner Bros."
-addstudio.save
 
 #actors
 
 addactor = Actor.new
-addactor ["name"] = "Christian Bale"
+addactor["name"] = "Christian Bale"
 addactor.save
 addactor = Actor.new
-addactor ["name"] = "Michael Cane"
+addactor["name"] = "Michael Cane"
 addactor.save
 addactor = Actor.new
-addactor ["name"] = "Liam Neeson"
+addactor["name"] = "Liam Neeson"
 addactor.save
 addactor = Actor.new
-addactor ["name"] = "Katie Holmes"
+addactor["name"] = "Katie Holmes"
 addactor.save
 addactor = Actor.new
-addactor ["name"] = "Gary Oldman"
+addactor["name"] = "Gary Oldman"
 addactor.save
 addactor = Actor.new
-addactor ["name"] = "Heath Ledger"
+addactor["name"] = "Heath Ledger"
 addactor.save
 addactor = Actor.new
-addactor ["name"] = "Aaron Eckhart"
+addactor["name"] = "Aaron Eckhart"
 addactor.save
 addactor = Actor.new
-addactor ["name"] = "Maggie Gyllenhaal"
+addactor["name"] = "Maggie Gyllenhaal"
 addactor.save
 addactor = Actor.new
-addactor ["name"] = "Tom Hardy"
+addactor["name"] = "Tom Hardy"
 addactor.save
 addactor = Actor.new
-addactor ["name"] = "Joseph Gordon-Levitt"
+addactor["name"] = "Joseph Gordon-Levitt"
 addactor.save
 addactor = Actor.new
-addactor ["name"] = "Anne Hathaway"
+addactor["name"] = "Anne Hathaway"
 addactor.save
 
 # role / character mapping (overall)
 
 christianb = Actor.find_by(name: "Christian Bale")
-michaelc = Actor.find_by(name: "Michael Caine")
+michaelc = Actor.find_by(name: "Michael Cane")
 liamn = Actor.find_by(name: "Liam Neeson")
 katieh = Actor.find_by(name: "Katie Holmes")
 garyo = Actor.find_by(name: "Gary Oldman")
@@ -174,33 +176,26 @@ tomh = Actor.find_by(name: "Tom Hardy")
 josephgl = Actor.find_by(name: "Joseph Gordon-Levitt")
 anneh = Actor.find_by(name: "Anne Hathaway")
 
+# movie and role mapping
 
-# role / character mapping (by movie)
-
-Role.create(movie_id: batman1.id, actor_id: christianb.id, chracter_name: "Bruce Wayne")
-Role.create(movie_id: batman1.id, actor_id: michaelc.id, chracter_name: "Alfred")
-Role.create(movie_id: batman1.id, actor_id: liamn.id, chracter_name: "Ra's Al Ghul")
-Role.create(movie_id: batman1.id, actor_id: katieh.id, chracter_name: "Rachel Dawes")
-Role.create(movie_id: batman1.id, actor_id: garyo.id, chracter_name: "Commissioner Gordon")
-
-Role.create(movie_id: batman2.id, actor_id: christianb.id, chracter_name: "Bruce Wayne")
-Role.create(movie_id: batman2.id, actor_id: heathl.id, chracter_name: "Joker")
-Role.create(movie_id: batman2.id, actor_id: aarone.id, chracter_name: "Harvey Dent")
-Role.create(movie_id: batman2.id, actor_id: michaelc.id, chracter_name: "Alfred")
-Role.create(movie_id: batman2.id, actor_id: maggieg.id, chracter_name: "Rachel Dawes")
-
-Role.create(movie_id: batman3.id, actor_id: christianb.id, chracter_name: "Bruce Wayne")
-Role.create(movie_id: batman3.id, actor_id: garyo.id, chracter_name: "Commissioner Gordon")
-Role.create(movie_id: batman3.id, actor_id: tomh.id, chracter_name: "Bane")
-Role.create(movie_id: batman3.id, actor_id: josephgl.id, chracter_name: "John Blake")
-Role.create(movie_id: batman3.id, actor_id: anneh.id, chracter_name: "Selina Kyle")
-
-
-# movie mapping
 batman1 = Movie.find_by(title: "Batman Begins")
 batman2 = Movie.find_by(title: "The Dark Knight")
 batman3 = Movie.find_by(title: "The Dark Knght Rises")
-
+Role.create(movie_id: batman1.id, actor_id: christianb.id, character_name: "Bruce Wayne")
+Role.create(movie_id: batman1.id, actor_id: michaelc.id, character_name: "Alfred")
+Role.create(movie_id: batman1.id, actor_id: liamn.id, character_name: "Ra's Al Ghul")
+Role.create(movie_id: batman1.id, actor_id: katieh.id, character_name: "Rachel Dawes")
+Role.create(movie_id: batman1.id, actor_id: garyo.id, character_name: "Commissioner Gordon")
+Role.create(movie_id: batman2.id, actor_id: christianb.id, character_name: "Bruce Wayne")
+Role.create(movie_id: batman2.id, actor_id: heathl.id, character_name: "Joker")
+Role.create(movie_id: batman2.id, actor_id: aarone.id, character_name: "Harvey Dent")
+Role.create(movie_id: batman2.id, actor_id: michaelc.id, character_name: "Alfred")
+Role.create(movie_id: batman2.id, actor_id: maggieg.id, character_name: "Rachel Dawes")
+Role.create(movie_id: batman3.id, actor_id: christianb.id, character_name: "Bruce Wayne")
+Role.create(movie_id: batman3.id, actor_id: garyo.id, character_name: "Commissioner Gordon")
+Role.create(movie_id: batman3.id, actor_id: tomh.id, character_name: "Bane")
+Role.create(movie_id: batman3.id, actor_id: josephgl.id, character_name: "John Blake")
+Role.create(movie_id: batman3.id, actor_id: anneh.id, character_name: "Selina Kyle")
 
 
 # Prints a header for the movies output
@@ -211,6 +206,11 @@ puts ""
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
+movies = Movie.all
+for x in movies
+    studio=Studio.find_by(id: x.studio_id)
+    puts "#{x.title}    #{x.year_released}    #{x.rated}    #{studio["name"]}"
+end
 
 
 # Prints a header for the cast output
@@ -221,3 +221,10 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+roles=Role.all
+for y in roles
+    actors=Actor.find_by(id: y.actor_id)
+    movies=Movie.find_by(id: y.movie_id)
+    puts "#{movies.title}    #{actors.name}    #{y.character_name}" 
+end
